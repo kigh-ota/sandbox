@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Margin Collapse</title>
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Adjacent siblings</h1>
+<div class="siblings-wrapper">
+  <div class="sibling">margin-bottom: 10px;</div>
+  <div class="sibling">margin-top: 10px;</div>
+</div>
+
+<h1>Parent and first child</h1>
+親要素の<code>margin-top</code>と子要素の<code>margin-top</code>とを
+隔てるborder, padding, インラインコンテンツなどが存在せず完全に重なり合うような場合、
+marginが相殺して子要素のmarginが親要素を突き抜ける。
+<div class="parent">
+  <div class="child">margin-top: 20px; (child)</div>
+  margin-top: 0; height: unset;
+</div>
+
+<h1>Parent and last child</h1>
+親要素の<code>margin-bottom</code>と子要素の<code>margin-bottom</code>とを
+隔てるborder, padding, インラインコンテンツ, heightなどが存在せず完全に重なり合うような場合、
+marginが相殺して子要素のmarginが親要素を突き抜ける。
+<div class="parent">
+  margin-bottom: 0; height: unset;
+  <div class="child-bottom">margin-bottom: 20px; (child)</div>
+</div>
+<div class="next">
+  margin: 0;
+</div>
+
+<h1>References</h1>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing">Mastering margin collapsing - MDN</a></li>
+</ul>
+
+
+</body>
+</html>
