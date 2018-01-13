@@ -1,0 +1,73 @@
+header, footer, .main, .sidemenu {
+    border: 1px solid;
+    background-color: #ccc;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+}
+
+.wrapper {
+    width: 970px;
+    margin: 30px auto 40px;
+}
+
+.main {
+    /* floatを使うと親要素(.wrapper)の高さに影響を与えなくなる */
+    float: left;
+    width: 660px;
+    height: 500px;
+}
+
+.sidemenu {
+    float: right;
+    width: 275px;
+    height: 500px;
+}
+
+.footer {
+    width: 100%;
+    height: 100px;
+}
+
+.border {
+    border: 2px solid blue;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.left {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+
+.right {
+    float: right;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+.bottom {
+    width: 350px;
+    height: 30px;
+    background-color: green;
+}
+
+.clearfix::after {
+    /* can be with only ::before and ::after pseudo-element */
+    content: '';
+    display: block;
+    /* 要素が、先行するfloat要素に回り込まないという指定 */
+    clear: both;
+}
+
+/*
+clearfixとは
+floatプロパティを使って水平方向に要素を配置した場合、そのままでは配置した要素の高さ情報が無視されるため、
+以降の要素の垂直方向の配置がうまくいかない。
+それを防ぐために、float要素の兄弟にclearプロパティを指定した要素を配置する手法。
+一般的には、float要素のラッパ要素の::after疑似要素を使う。
+ */
